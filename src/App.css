@@ -1,38 +1,71 @@
-.App {
+@keyframes hoverOnInput{
+  0%, 100% {border-color:grey}
+  50% {border-color:limegreen; background-color: rgb(189, 230, 189);}
+}
+.App{
+  margin: 0 auto;
+  width: 50%;
+}
+
+h1, h2{
+  font-family: 'Cinzel', serif;
+ 
+  font-weight: 400;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1{
+  font-size: 42px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2{
+  font-size: 26px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+td{
+  height:20px;
+  width:20px;
+  margin: 0 auto;
+  padding: 10px 10px;
+  border: 2px solid black;
+  text-align: center;
 }
-
-.App-link {
-  color: #61dafb;
+table{
+  margin: 0 auto;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-start{
+  display: block;
+  position: relative;
+  left: 45%;
+  border:2px solid black;
+  border-radius: 20%;
+ 
+}
+.btn-start:hover{
+  animation-name:hoverOnInput;
+  animation-duration: 1.2s;
+}
+td:hover{
+  animation-name:hoverOnInput;
+  animation-duration: 1.2s;
+}
+span{
+  left: 20%;
+  position: relative;
+}
+span h2{
+  display:inline;
+}
+input{
+  display: inline;
+  font-size: 26px;
+  font-family: "Cinzel", cursive;
+  border:none;
+  border-bottom: 5px solid grey;
+  margin: 0 auto;
+  width:20%;
+  height: 30px;
+  caret-color: green;
+  
+}
+input:hover{
+  animation-name: hoverOnInput;
+  animation-duration: 1.2s;
 }

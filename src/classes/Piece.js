@@ -1,7 +1,7 @@
 module.exports = class Piece{
     constructor(position, life){
         this.position = position;
-        this.symbol = "X";
+        this.symbol = (life===true?"X":"0");
         this.life=life;
         this.vectorsAxial=[{x:-1,y:-1}, {x:-1, y:1}, {x:1, y:1}, {x: 1, y:-1}];
         this.vectorsDiagonal=[{x:1, y:0}, {x:-1, y:0}, {x:0,y:-1}, {x:0, y:1}];

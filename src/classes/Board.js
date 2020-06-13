@@ -39,10 +39,10 @@ module.exports = class Board{
                 result=v;
                 return result;
             }else{
-                return 0;
+                result=0;
             }
         }
-              
+              return result;
         });
         
         return borderDiagonal;
@@ -51,21 +51,22 @@ module.exports = class Board{
         const borderAxial = piece.vectorsAxial.filter((v) => {
             let borderX = this.countPosition(piece.position.x, v.x);
             let borderY = this.countPosition(piece.position.y, v.y);
+            let result;
             if((borderX>=0 && borderY>=0)&&(borderX<this.previousBoard.length && borderY<this.previousBoard[0].length)){
                 if (this.previousBoard[borderX][borderY].symbol === "X") {
-                return v;
+                result= v;
                 }
             }
+            return result;
           });
           return borderAxial;
       }
 
-    firstRule(piece){
+    checkTheRules(piece){
         let axialLength = this.searchForBorderAxially(piece).length;
         let diagonalLength = this.searchForBorderDiagonally(piece).length;
         let sum = axialLength+diagonalLength;
         let equalCondition = (sum===2 || sum===3);
-        let nonEqualCondition = (sum<2 || sum>3);
         //martwa komórka ktora ma 3 żywych sąsiadów staje się żywa
         if(piece.life===false && sum===3){
             piece.live();
@@ -83,7 +84,7 @@ module.exports = class Board{
         this.setThePreviousBoard();
         this.activeBoard.forEach((r, indexI)=>{
             r.forEach((i, indexJ)=>{
-                    this.firstRule(i);
+                    this.checkTheRules(i);
             })
         })
     }
@@ -110,6 +111,13 @@ module.exports = class Board{
         }));
        
         this.activeBoard=_.cloneDeep(tab);
+    }
+    returnThePieces(){
+        return this.activeBoard.filter(r=>{
+            return r.filter(i=>{
+            return (i.symbol==="X")?i:null;
+            
+        })})
     }
     
     }

@@ -1,3 +1,4 @@
+'use strict'
 let Piece = require("./Piece");
 let _ = require("lodash");
 
@@ -82,8 +83,8 @@ module.exports = class Board{
   
     playTheGame(){
         this.setThePreviousBoard();
-        this.activeBoard.forEach((r, indexI)=>{
-            r.forEach((i, indexJ)=>{
+        this.activeBoard.forEach((r)=>{
+            r.forEach((i)=>{
                     this.checkTheRules(i);
             })
         })
@@ -121,15 +122,4 @@ module.exports = class Board{
     }
     
     }
-    // let board = new Board();
-    // let a=0;
-    // board.setThePieces();
-    // board.placeThePiece(new Piece({x:1,y:1}))
-    // board.placeThePiece(new Piece({x:1,y:2}))
-    // board.placeThePiece(new Piece({x:2,y:2}))
-    // board.placeThePiece(new Piece({x:2,y:3}))
-
-    // while(a<10){
-    //     board.playTheGame();
-    //     a++;
-    // }
+ 
